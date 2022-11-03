@@ -5,14 +5,11 @@ with open('titles.txt') as f:
     text = f.read()
 
 text_rows = text.split('\n')
-rows = [[field for field in row.split('\t')] for row in text_rows]
+data_rows = [[field for field in row.split('\t')] for row in text_rows if '\t' in row]
 
 # order dataset
 rows_by_n_colons_by_year = {}
-for i, row in enumerate(rows):
-    # skip invalid rows
-    if len(row) != 3:
-        continue
+for i, row in enumerate(data_rows):
     # get dict per year
     rows_by_n_colons_by_year[int(row[1])] = rows_by_n_colons_by_year.get(int(row[1]), {})
     rows_by_n_colons = rows_by_n_colons_by_year[int(row[1])]
