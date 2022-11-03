@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 import re
 
 with open('titles.txt') as f:
@@ -57,7 +58,7 @@ for year in x:
 
 plt.bar(x, y[0])
 plt.bar(x, y[1], bottom=y[0])
-plt.bar(x, y[2], bottom=y[0]+y[1])
+plt.bar(x, y[2], bottom=np.array(y[0])+np.array(y[1]))
 
 plt.show()
 
