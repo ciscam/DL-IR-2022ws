@@ -33,7 +33,7 @@
         Assignment 01\\
 		\small{\bf Digital Libraries and Foundations of Information Retrieval}\\
 		\small{Winter semester 2022}}
-\author{\small{\#\#\#\#\#\#\# Franka Brunen}, \small{1365848 Andreas Schneider}}
+\author{\small{1542011 Franka Brunen}, \small{1365848 Andreas Schneider}}
 \date{}
 \begin{document}
 \setlength{\parskip}{6pt} % Remove paragraph first line h-indent and instead add v-margin %
@@ -48,7 +48,7 @@
 \begin{enumerate}
     \item \begin{itemize}
         \item The physical media will decay after some time\\
-            $\rightarrow$ You can delay that to some extent with careful handling and proper storage measurements. For example paper is susceptible to high or low air humidity. UV radiation is another common factor that influences the lifetime of many physical media.
+            $\rightarrow$ One can delay that to some extent with careful handling and proper storage measurements. For example paper is susceptible to high or low air humidity. UV radiation is another common factor that influences the lifetime of many physical media.
         \item Physically handling media results in physical stress\\
             $\rightarrow$ Covers of books could be protected by an additional wrapper. Optical media can be duplicated, so one could either only hand out copies or keep $>1$ lossless copy in storage. Access to important and vulnerable media could be restricted.
     \end{itemize}
@@ -59,7 +59,7 @@
     Duplicating digital media, on the other hand, is a completely lossless process.\\
     A concern one might still have is the possibility of all copies suffering from the same defect, like the corruption of a specific storage area, which would result in an unrecoverable loss of information. That can be solved by using multiple and different storage media, like a hard disk, flash memory, tape and optical discs.
     
-    Optimally, there would be an infinitely scaling digital blueprint for every piece of media, like a scalable vector image or a \TeX\ typesetting definition, accompanied by an index of publication specifications which could include the printer, its firmware version, the used paper and other factors that had an influence on originally distributed copies.
+    Optimally, there would be an infinitely scaling digital blueprint for every piece of media, like a scalable vector image or a \TeX\ typesetting definition, accompanied by an index of publication specifications which include information like the devices associated, used materials and other factors that had an influence on originally distributed copies.
 \end{enumerate}
 
 
@@ -77,35 +77,35 @@
         \item Digitized media are machine-readable, meaning many media can be analyzed or augmented by the same algorithmic processes.
     \end{enumerate}
     
-    \item You can analyze the color pigments and the structure of the paper of a document, or the details of a books binding to determine its place and time of origin. You lose that information at least to some degree when digitizing.
+    \item One can analyze the color pigments and the structure of the paper of a document, or the details of a books binding to determine its place and time of origin. That information is, at least to some degree, lost when digitizing.
     
-    Another analysis that is not possible with a digitized copy would be
+    Another analysis that is not possible with a digitized copy would be peculiarities of the media format. The crackle in a vinyl recording is either filtered out or specific to the playback device, same with signal noise on VHS tapes. One can only estimate how it was generally consumed and perceived.
     
-    Not an analysis is the impression of a painting in a room, maybe even at a specific time with selected people. Or the shenanigans of some Audio CDs that would skip on older players, which can not really be replicated.
+    Also most probably elaborate book covers or paintings are not scanned to the extent that you could tell the depth or composition of a color drop on canvas or recognize fine nails in a leather book cover. For one, the effects of aging on the original can only be estimated.
 \end{enumerate}
 
 
 
 \section{\hfill Analysis of publication titles\hfill 5+5+3+2 Points}
 \begin{enumerate}
-    \item Titles containing a colon appear more frequently now than in the past. But that is because documents in general appear more frequently now than in the past, as seen in figure \ref{fig:1}.
-    \begin{figure}[h!!]
+    \item Titles containing a colon appear more frequently now than in the past. But documents in general appear more frequently now than in the past, as seen in figure \ref{fig:1}.
+    \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{Figure_1.png}
-        \caption{Stacked bar graph of number of books titles with none, one and multiple colons per year}
+        \caption{Stacked bar graph of number of book titles with none (blue), one (orange) and more than one colons (green) per year}
         \label{fig:1}
     \end{figure}
     
-    The relative bar plot makes for a more stable impression. Since the inception of this title style in the 1960s, it seems to have dropped not under 10\% representation, but also not gone way above 20\%, as seen in figure \ref{fig:2}.
+    The relative bar plot makes for a more interpretable impression, as seen in figure \ref{fig:2}. After a relative frequency of around 23\% at the inception of this title style in the 1960s, it dropped to a low of around 5\% and had a slow and steady increase until the 2000s. Then it was more or less level until around 2015. Except for the preliminary data from 2023, there has been a strong and steady increase in frequency since then, with a current maximum of around 24\%.
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{Figure_2.png}
-        \caption{Stacked bar graph of proportion of books titles with none and one or multiple colons per year}
+        \caption{Stacked bar graph of proportions of book titles with none and one or more colons per year}
         \label{fig:2}
     \end{figure}
     
     \item See figure \ref{fig:3}.
-    \begin{figure}[h!]
+    \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{Figure_3.png}
         \caption{Bar graph of frequency of word count before first colon}
@@ -122,7 +122,7 @@
   and freshwater monitoring.']\end{verbatim}
     It was detected as 2-or-more-colons with two words before the first colon. I think detecting 'R-Syst::diatom' as one term would be preferable, but what other anomalies would that introduce, however one would achieve that detection? Is there a general agreement that 'Sainte-Mère-Église' is also one term?
     
-    \item Some patterns in titles worth analyzing might me
+    \item Some patterns in titles worth analyzing might be
     \begin{itemize}
         \item general word count,
         \item word length,
