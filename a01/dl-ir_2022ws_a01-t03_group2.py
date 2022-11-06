@@ -34,7 +34,7 @@ for n_colons in rows_by_n_colons_by_year.values():
 # {0: 246444, 1: 54971, 2: 1194, 3: 112, 4: 19, 5: 5, 6: 1}
 
 
-# so three bars: 0-, 1-, and >1-bar
+# so three bars: 0, 1, and >1
 # maybe highlight the 6-colon-row somewhere?
 
 # years ascending as x-values
@@ -83,9 +83,10 @@ plt.bar(x, y[0])
 plt.bar(x, y[1], bottom=y[0])
 
 plt.show()
+# oh that ex b
 
 
-# exercise part b) chart of wordcount in first part
+# exercise part c) chart of wordcount in first part
 rows_by_wordcount_before_first_colon = {}
 for i, row in enumerate(data_rows):
     title = row[2]
@@ -117,3 +118,30 @@ for col in x:
 plt.bar(x, y)
 
 plt.show()
+
+
+# ex. part b now as relative stackplot
+x = list(rows_by_n_colons_by_year)
+x.sort()
+
+y = [[], []]
+for year in x:
+    without_colon = 0
+    with_colon = 0
+    for n_colons, rows in rows_by_n_colons_by_year[year].items():
+        if n_colons == 0:
+            without_colon += len(rows)
+        elif n_colons >= 1:
+            with_colon += len(rows)
+        else:
+            raise(Exception('of epic proportions'))
+    total = without_colon + with_colon
+    y[0].append(without_colon / total)
+    y[1].append(with_colon / total)
+
+y_plt = np.vstack(y)
+
+_, _ = plt.stackplot(x, y)
+
+plt.show()
+# nahhh you can't differentiate years in the noninteractive version
