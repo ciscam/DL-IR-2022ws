@@ -1,0 +1,136 @@
+% ---------------------------------------------------------------------------- %
+% -------------------------- nevermind the preamble -------------------------- %
+% ---------------------------------------------------------------------------- %
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, total={160mm, 240mm}]{geometry} % smaller margin %
+\usepackage[utf8]{inputenc} % umlauts %
+\usepackage[german]{babel} % validation %
+\usepackage[autostyle]{csquotes}
+\MakeOuterQuote{"}
+
+
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+\setlist[enumerate, 1]{label=(\alph*)}
+\setlist[enumerate, 2]{label=\arabic*}
+
+\usepackage{titlesec}
+\titleformat{\section}[hang]{\small}{\textbf{Task \thesection:}}{.5em}{}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+
+% ---------------------------------------------------------------------------- %
+% -------------------------- nevermind the preamble -------------------------- %
+% ---------------------------------------------------------------------------- %
+
+\title{ \vspace{-3em}
+        Assignment 03\\
+		\small{\bf Digital Libraries and Foundations of Information Retrieval}\\
+		\small{Winter semester 2022}}
+\author{\small{1542011 Franka Brunen}, \small{1365848 Andreas Schneider}}
+\date{}
+\begin{document}
+\setlength{\parskip}{6pt} % Remove paragraph first line h-indent and instead add v-margin %
+\setlength{\parindent}{0pt}
+
+\leftskip=1cm\rightskip=0.5cm % Indent paragraphs for readability %
+\setlist[1]{leftmargin=2cm} % Indent first level of lists accordingly %
+
+\maketitle
+
+\section{\hfill Information Needs\hfill 3+6+6 Points}
+\begin{enumerate}
+    \item \begin{enumerate}
+            \item Information on the person "Queen Elizabeth"
+            \item Information on the term "queen", as in "queen regnant"
+            \item Information on the term "queen", as in the music band
+            \item Information on the term "queen", as in the magazine
+            \item A disambiguation including all of the above and more like \url{https://en.wikipedia.org/wiki/Queen}
+        \end{enumerate}
+    \item First 10 results for duckduckgo.com:\\
+        \hspace*{-2cm}\begin{tabular}{|p{.73\textwidth}||c|c|c|c|c|c|}
+            \hline
+            \textbf{Name} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{other}\\
+            \hline
+            Queen (Band) - Wikipedia&&&X&&&\\
+            QueenOnline.com - The Official Queen Website&&&X&&&\\
+            Queen - Greatest Live Performances - YouTube&&&X&&&\\
+            Queen - Bohemian Rhapsody (Official Video Remastered) - YouTube&&&X&&&\\
+            Queen | Biografie - Universal Music&&&X&&&\\
+            Elisabeth II. - Wikipedia&X&&&&&\\
+            Queen Elizabeth (†): Enthüllt! Ihre strikte Regenschirm-Regel&X&&&&&\\
+            Beisetzung von Queen Elizabeth II.: ++ Sarg im Familienkreis beigesetzt ...&X&&&&&\\
+            Queen-Beerdigung: Der Tag in Bildern - ZDFheute&X&&&&&\\
+            Queen - Wikipedia, la enciclopedia libre&&&X&&&\\
+            \hline
+        \end{tabular}
+        
+        First 10 results for duckduckgo.com:\\
+        \hspace*{-2cm}\begin{tabular}{|p{.73\textwidth}||c|c|c|c|c|c|}
+            \hline
+            \textbf{Name} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{other}\\
+            \hline
+            Queen (band) - Wikipedia&&&X&&&\\
+            Elizabeth II - Wikipedia&X&&&&&\\
+            Queen The Band Now Worth More Than The Queen Of England - Audacy&X&&X&&&\\
+            Adam Lambert confesses fear of following Freddie Mercury before ...&&&X&&&\\
+            Queen + Adam Lambert - Wikipedia&&&X&&&\\
+            Behind the Band Name: Queen - American Songwriter&&&X&&&\\
+            Queen Official - YouTube&&&X&&&\\
+            QueenOnline.com - The Official Queen Website&&&X&&&\\
+            Queen | Spotify&&&X&&&\\
+            Queen - Facebook&&&X&&&\\
+            \hline
+        \end{tabular}
+        
+        Aggregation of results:\\
+        \begin{tabular}{|l||c|c|c|c|c|c|}
+            \hline
+            & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{other}\\
+            \hline
+            \textbf{duckduckgo.com} & 4&0&6&0&0&0\\
+            \textbf{google.com} & 2&0&9&0&0&0\\
+            \hline
+        \end{tabular}
+        
+        In one case, row 3 from google.com, an article could be assigned to two information needs: \textbf{a} and \textbf{c}.
+    \item \begin{enumerate}
+            \item "queen" + " elizabeth"\\
+                $\rightarrow$ \texttt{10  0  0  0  0  0}
+            \item "queen" + " regnant"\\
+                $\rightarrow$ \texttt{ 1  5  0  0  0  4}
+                \\(with two "other" being info on queens other than Elizabeth II and two being lists of queen regnants)
+            \item "queen" + " band"\\
+                $\rightarrow$ \texttt{ 0  0 10  0  0  4}
+            \item "queen" + " magazine"\\
+                $\rightarrow$ \texttt{ 2  0  3  4  0  1}\\
+                (with "other" being "GUIDOS DEKO QUEEN - das Magazin für alle Deko-Fans"; the Term "magazine" is obviously not very effective in discerning the old UK Queen Magazine)
+            \item "queen" + " disambiguation"\\
+                $\rightarrow$ \texttt{ 0  0  1  0  3  6}\\
+                (with all "other" being disambiguation wiki pages of fictional universes)
+        \end{enumerate}
+\end{enumerate}
+
+
+\section{\hfill Precision and Recall\hfill 5+5+5 Points}
+\begin{itemize}
+    \item 
+    \item 
+    \item 
+\end{itemize}
+
+
+\section{\hfill Additional evaluation metrics\hfill 4+6+5 Points}
+\begin{itemize}
+    \item 
+    \item 
+    \item 
+\end{itemize}
+
+
+\end{document}
