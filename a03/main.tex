@@ -118,7 +118,7 @@
 
 
 \section{\hfill Precision and Recall\hfill 5+5+5 Points}
-\begin{itemize}
+\begin{enumerate}
     \item \textbf{Information need:} The difference between \texttt{\textbackslash tabular} and \texttt{\textbackslash tabular*}\\
         \textbf{Search query:} "\texttt{tabular} vs \texttt{tabular*}"
         \begin{figure}[h]
@@ -129,15 +129,50 @@
     \item One could say that the data to be searched is infinite, as new web pages are indexed at every moment. Therefore the amount of false negatives is unknown.
     
     Between two or more search engines, one can accumulate all the true positives and compare the amount of false negatives of each search engine. If one true positive is returned by one search engine but not the other, the other has a false negative.
-\end{itemize}
+\end{enumerate}
 
 
+\newpage
 \section{\hfill Additional evaluation metrics\hfill 4+6+5 Points}
-\begin{itemize}
-    \item 
-    \item 
-    \item 
-\end{itemize}
+\begin{enumerate}
+    \item Definitions:\\
+        - $F_\beta$ "is a measure of a test's accuracy. It is calculated from the precision and recall of the test" \footnote{Wikipedia \url{https://en.wikipedia.org/wiki/F-score}}\\
+        - \textit{Fallout} is "the fraction of non-relevant documents that are retrieved $ \frac{|ret\cap \neg rel|}{|\neg rel|} $" \footnote{L. Egghe (2008) The measures precision, recall, fallout and miss as a function of the number of retrieved documents and their mutual interrelations \url{https://www.sciencedirect.com/science/article/pii/S0306457307001598}}
+        
+        The impact of the parameter $\beta$ is that it defines the weight of recall in relation to precision. In other words, recall is weighed "$\beta$ times as much" as precision.
+        
+        Explanations
+        \begin{itemize}
+            \item $F_\beta=0$ is possible and means that no relevant document was retrieved.
+            \item $F_\beta=1$ is possible and means that no non-relevant document was retrieved and either $\beta$ or the number of non-retrieved relevant documents is $0$.
+            \item $Fallout=0$ is possible and means no non-relevant documents were retrieved.
+            \item $Fallout=1$ is possible and means all non-relevant documents were retrieved.
+        \end{itemize}
+    \item Determinations:
+    
+        \begin{tabular}{l|l|l|l|l}
+            Result set&\textit{Recall}&\textit{Precision}&\textit{Fallout}&$F_1$\\
+            \hline
+            $S_1$ &4/9   &0.40 = 4/10   &5/21   &0.53 = 10/19\\
+            $S_2$ &7/9   &0.54 = 7/13   &6/21   &0.64 = 14/22\\
+            $S_3$ &6/9   &0.75 = 6/8   &2/21   &0.71 = 12/17\\
+        \end{tabular}
+        
+        In terms of these metrics, $S_3$ is the best-performing one. With this specific search query and document collection, the IR retrieved most relevant results and few non-relevant ones. Only in $Recall$ is $S_2$ better, but not enough to compensate for the false positive and -negatives that affect its $F_\beta$.
+    \item Assuming that there is always 1 relevant and 1 non-relevant document to any search query:
+        \begin{itemize}
+            \item An IR system that retrieves all documents on every query would always have a recall of 1, as it would always retrieve all relevant documents.
+            
+            Its precision would always be $\frac{rel}{|D|}$; relevant documents divided by the amount of all documents, as it would always return all relevant documents alongside all others.
+            
+            Its fallout would always be 1, as all documents contain all non-relevant documents.
+            \item An IR system that retrieves no documents on every query would always have a fallout of 0, as it would never retrieve any non-relevant document.
+            
+            Its recall would always be 0, as it would always return 0 relevant documents.
+            
+            Its precision would always be 0, as it would always return 0 relevant documents.
+        \end{itemize}
+\end{enumerate}
 
 
 \end{document}
