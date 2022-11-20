@@ -98,7 +98,7 @@
             \hline
         \end{tabular}
         
-        In one case, row 3 from google.com, an article could be assigned to two information needs: \textbf{a} and \textbf{c}.
+        In one case, row 3 from google.com, an article could be assigned to two information needs: \textbf{1} and \textbf{3}.
     \item \begin{enumerate}
             \item "queen" + " elizabeth"\\
                 $\rightarrow$ \texttt{10  0  0  0  0  0}
@@ -123,7 +123,7 @@
         \textbf{Search query:} "\texttt{tabular} vs \texttt{tabular*}"
         \begin{figure}[h]
             \centering
-            \includegraphics[width=\linewidth]{e03screenshot}
+            \includegraphics[width=\linewidth]{e03screenshot.indexed}
         \end{figure}
     \item \textbf{Precision:} $1/10=0.1=10\% $
     \item One could say that the data to be searched is infinite, as new web pages are indexed at every moment. Therefore the amount of false negatives is unknown.
@@ -141,7 +141,7 @@
         
         The impact of the parameter $\beta$ is that it defines the weight of recall in relation to precision. In other words, recall is weighed "$\beta$ times as much" as precision.
         
-        Explanations
+        Explanations:
         \begin{itemize}
             \item $F_\beta=0$ is possible and means that no relevant document was retrieved.
             \item $F_\beta=1$ is possible and means that no non-relevant document was retrieved and either $\beta$ or the number of non-retrieved relevant documents is $0$.
