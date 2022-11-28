@@ -95,12 +95,12 @@
                     \item p1 $\cap$ p2 = \{2,3,4\}
                 \end{enumerate}
         \end{enumerate}
-    \item Information need: \textit{Should I skate or drink punch on christmas?}\\
+    \item Information need: \textit{Should I do sport on the ice or drink punch to warm up on christmas?}\\
         Relevant documents: $D_1$ (skating on ice), $D_2$, $D_3$, $D_4$\\
         Precision: 3/3\\
         Recall: 3/4\\
-        Recall was not perfect, as I added $D_1$ on my understanding of the term \textit{ice} as in \textit{skating on ice}. The Boolean Query Algorithm does not account for such far fetched relations and thus can not find this explicit-positive document.
-    \item The term christmas appears in all document. That means it either does not have any effect on a query, or, when negated and conjunctive, the result set is always empty.
+        Recall was not perfect, as I added $D_1$ by my understanding of the term \textit{ice} as in \textit{skating on ice}. The Boolean Query Algorithm does not account for such far fetched relations and thus can not find this explicit-positive document.
+    \item The term christmas appears in all documents. That means it either does not have any effect on a query, or, when disjunctive, always returns all documents, or, when negated and conjunctive, the result set is always empty.
 \end{enumerate}
 
 
