@@ -127,10 +127,34 @@
           \textit{Hyphenation at line end} \\
                 In the example sentence, the word \enquote{Ceremony} is separated by a hyphen at the end of the line, making tokenization more difficult. \\
                 Ceremony as \enquote{cere} and \enquote{mony} \\
-\end{enumerate} 
+\end{enumerate}  
 
 
-\newpage
 \section{\hfill Document preprocessing\hfill 15 Points}
+\begin{enumerate}
+    \item \textbf{Tokens:} analyzing, online, schema, extraction, approaches, for, linked, data, knowledge, bases, elements, of, computer, science, artificial, intelligence
+    \item \textbf{Stop words (to be removed):} for, of
+    \item \textbf{Porter Algorithm}, where (1b-2) means \textit{Step 1b rule 2} as per the original definition\footnote{\url{https://tartarus.org/martin/PorterStemmer/def.txt}}:
+    
+        \begin{tabular}{r|l}
+            analyzing&(1b-3) analyz\\
+            online&(5a-1) onlin\\
+            schema&\\
+            extraction&(4-12) extract\\
+            approaches&(1a-4) approache (5a-1) approach\\
+            linked&(1b-2) link\\
+            data&\\
+            knowledge&(5a-1) knowledg\\
+            bases&(1a-4) base (5a-2) bas\\
+                &(\textit{nltk.stem.PorterStemmer returned "base" but b-\textbf{as} is m=1},\\
+                &\textit{bas is/ends CVC and the second c is not W, X, or Y...})\\
+            elements&(1a-4) element \\
+            computer&(4-4) comput\\
+            science&(5a-2) scienc\\
+            artificial&(4-1) artifici\\
+            intelligence&(4-3) intellig
+        \end{tabular}
+\end{enumerate}
+
 
 \end{document}
