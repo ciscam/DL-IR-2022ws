@@ -1,0 +1,150 @@
+% ---------------------------------------------------------------------------- %
+% -------------------------- nevermind the preamble -------------------------- %
+% ---------------------------------------------------------------------------- %
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, total={160mm, 240mm}]{geometry} % smaller margin %
+\usepackage[utf8]{inputenc} % umlauts %
+\usepackage[german]{babel} % validation %
+\usepackage[autostyle]{csquotes}
+\MakeOuterQuote{"}
+
+
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+\setlist[enumerate, 1]{label=(\alph*)}
+\setlist[enumerate, 2]{label=\arabic*}
+
+\usepackage{titlesec}
+\titleformat{\section}[hang]{\small}{\textbf{Task \thesection:}}{.5em}{}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+
+\usepackage{ulem}
+
+% ---------------------------------------------------------------------------- %
+% -------------------------- nevermind the preamble -------------------------- %
+% ---------------------------------------------------------------------------- %
+
+\title{ \vspace{-3em}
+        Assignment 05\\
+		\small{\bf Digital Libraries and Foundations of Information Retrieval}\\
+		\small{Winter semester 2022}}
+\author{\small{1542011 Franka Brunen}, \small{1365848 Andreas Schneider}}
+\date{}
+\begin{document}
+\setlength{\parskip}{6pt} % Remove paragraph first line h-indent and instead add v-margin %
+\setlength{\parindent}{0pt}
+
+\leftskip=1cm\rightskip=0.5cm % Indent paragraphs for readability %
+\setlist[1]{leftmargin=2cm,rightmargin=0.5cm} % Indent first level of lists accordingly %
+
+\maketitle
+
+
+\section{\hfill Thesauri\hfill 2+5+2+3+3 Points}
+\begin{enumerate}
+    \item \begin{enumerate}
+            \item S: (n) queen (the only fertile female in a colony of social insects such as bees and ants and termites; its function is to lay eggs)
+            \item S: (n) queen, queen regnant, female monarch (a female sovereign ruler)
+            \item S: (n) queen (the wife or widow of a king)
+            \item S: (n) queen (something personified as a woman who is considered the best or most important of her kind)         \item "Paris is the queen of cities"; "the queen of ocean liners"
+            \item S: (n) king, queen, world-beater (a competitor who holds a preeminent position)
+            \item S: (n) fagot, faggot, fag, fairy, nance, pansy, queen, queer, poof, poove, pouf (offensive term for a homosexual man)
+            \item S: (n) queen (one of four face cards in a deck bearing a picture of a queen)
+            \item S: (n) queen ((chess) the most powerful piece)
+            \item S: (n) queen, queen mole rat (an especially large mole rat and the only member of a colony of naked mole rats to bear offspring which are sired by only a few males)
+            \item S: (n) tabby, queen (female cat) 
+        \end{enumerate}
+    \item \begin{enumerate}[label={(\arabic*)}]
+            \item Meaning 8
+            \item Meaning 2
+            \item Meaning 4, 5, 6
+            \item Meaning 1
+            \item Meaning 9
+            \item None
+        \end{enumerate}
+        Sometimes a thesaurus has more than one distinct meaning to a word, like in sentence (3). Also entities, like "The queen" (of England) in sentence (2) and "Queen" (band) in sentence (6) are not covered in thesauri.
+    \item Meanings 2 and 3 are handled in \textit{Monarchy}, 8 and 9 in \textit{Gaming}, 1 and 11 in \textit{Science}, and 7 in \textit{Other uses}.
+    \item That approach would always assign the same meaning to all occurrences of a word. Many words have very different meanings depending on the context. The most frequent meaning also has a high probability of being one of the more generic ones. Even if "run" was identified as a verb, the approach would mismatch either "The company is running fine", or "The company has not been run down".
+    \item 
+\end{enumerate}
+
+
+\newpage
+\section{\hfill String Distances\hfill 2+4+9 Points}
+\begin{enumerate}
+    \item The Hamming Distance is the amount of characters which would need to be replaced to transform one string into the other. Both strings need to have the same length.\footnote{\url{https://cgl.ethz.ch/teaching/former/infotheory0607/Downloads/hamming1_1.pdf}}
+    \item The Levenshtein Distance is a measure of how many single-character edit operations are required to transform one string into the other. Operations are \textit{insert}, \textit{delete} and \textit{substitute}. The variant by Damerau adds the operation of \textit{transposition}, the exchange of two neighboring characters, at the same cost as the other operations in its regular form.\footnote{\url{https://suw.biblos.pk.edu.pl/resources/i5/i0/i8/i0/i3/r50803/NiewiarowskiA_ParallelizationLevenshtein.pdf}}
+    \item The Levenshtein Distances in this exercise are unweighted.
+    
+        \textbf{rhein} and \textbf{rhine}\\
+        \begin{tabular}{llll}
+             Hamming Distance               &rhein&&0\\
+                                            &rh\textbf{i}in &replace \textbf{e} with \textbf{i} & 1\\
+                                            &rhe\textbf{n}n &replace \textbf{i} with \textbf{n} & 2\\
+                                            &rhin\textbf{e} &replace \textbf{n} with \textbf{e} & \textbf{3}\\
+             Levenshtein Distance           &rhein&&0\\
+                                            &rh\sout{e}in &delete \textbf{e} & 1\\
+                                            &rh\ \ in\textbf{e} &insert \textbf{e} & \textbf{2}\\
+             Damerau-Levenshtein Distance   &no difference\\
+        \end{tabular}
+    
+        \textbf{mainz} and \textbf{minze}\\
+        \begin{tabular}{llll}
+             Hamming Distance               &mainz&&0\\
+                                            &m\textbf{i}inz &replace \textbf{a} with \textbf{i} & 1\\
+                                            &mi\textbf{n}nz &replace \textbf{i} with \textbf{n} & 2\\
+                                            &min\textbf{z}z &replace \textbf{n} with \textbf{z} & 3\\
+                                            &minz\textbf{e} &replace \textbf{z} with \textbf{e} & \textbf{4}\\
+             Levenshtein Distance           &mainz&&0\\
+                                            &m\sout{a}inz &delete \textbf{a}& 1\\
+                                            &m\ \ inz\textbf{e} &insert \textbf{e}& \textbf{2}\\
+             Damerau-Levenshtein Distance   &no difference\\
+        \end{tabular}
+    
+        \textbf{abababab} and \textbf{babababa}\\
+        \begin{tabular}{llll}
+             Hamming Distance               &abababab&&0\\
+                                            &\textbf{b}bababab &replace \textbf{a} with \textbf{b} & 1\\
+                                            &b\textbf{a}ababab &replace \textbf{b} with \textbf{a} & 2\\
+                                            &...\\
+                                            &bababab\textbf{a} &replace \textbf{b} with \textbf{a} & \textbf{8}\\
+             Levenshtein Distance           &abababab&&0\\
+                                            &\sout{a}bababab &delete \textbf{a}& 1\\
+                                            &\ \ bababab\textbf{a} &insert \textbf{a}& 1\\
+             Damerau-Levenshtein Distance   &no difference\\
+        \end{tabular}
+\end{enumerate}
+
+
+\newpage
+\section{\hfill Context-sensitive Spelling Correction\hfill 2+8+5 Points}
+\begin{enumerate}
+    \item $ P(miles|thousand), P(males|thousand), P(mules|thousand) $
+    \item Using Firefox, private window, google.com. The variable $C$ (C is the number of distinct bigrams in the corpus with $w_i$ at the first position) is left out for the purpose of simplicity.
+    
+        About 2.610.000.000 results for \texttt{thousand}.
+        
+        About 13.300.000 results for "\texttt{thousand miles}". $P(miles|thousand)=\frac{13.3\textsc{e}6}{26.1\textsc{e}8}=0.51\%$
+        
+        About 61.800 results for "\texttt{thousand males}". $P(males|thousand)=\frac{61800}{26.1\textsc{e}8}=0.0024\%$
+        
+        About 9.200 results for "\texttt{thousand mules}". $P(mules|thousand)=\frac{9200}{26.1\textsc{e}8}=0.00035\%$
+        
+        \texttt{miles} is the best correction term out of the \textit{three} candidates.
+    \item Possible information need: "Does the ZIMK host an event for christmas?"
+    
+        \texttt{zimk}, as an abbreviation, could be misinterpreted as a human spelling error.
+        
+        Both duckduckgo.com and google.com included results for \texttt{zink} and \texttt{zinc}. Google announced it ("Did you mean \textit{zink} christmas?"), Duckduckgo did not.
+        
+        I am pretty sure that more people will have mistyped \texttt{zink/zinc} in this query "\texttt{zimk christmas}", looking for decoration, cups etc., than people who actually want to know about the christmas plans of whatever \texttt{zimk} means to them. That means that more than half of the time, people querying for "\texttt{zimk christmas}" are helped by including search results with the most probable correction terms.
+\end{enumerate}
+
+
+\end{document}
