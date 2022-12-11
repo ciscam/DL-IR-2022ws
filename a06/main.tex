@@ -94,24 +94,24 @@
              $|d_1|$&$||d_1||$&$|d_2|$&$||d_2||$&$|d_3|$&$||d_3||$&$|d_4|$&$||d_4||$\\
              =27&=$\sqrt{427}$&=27&=$\sqrt{269}$&=105&=$\sqrt{10025}$&=1015&=$\sqrt{1000125}$
         \end{tabular}
-    \item $sim(d_1,q)=$&$\frac{1}{/\sqrt{427}}$\\
-        $sim(d_2,q)=$&$\frac{10}{/\sqrt{269}}$\\
-        $sim(d_3,q)=$&$0$\\
-        $sim(d_4,q)=$&$0$
-    \item $sim(d_1,q)=$&$\frac{5}{/\sqrt{427}}$\\
-        $sim(d_2,q)=$&$\frac{5}{/\sqrt{269}}$\\
-        $sim(d_3,q)=$&$\frac{5}{/\sqrt{10025}}$\\
-        $sim(d_4,q)=$&$\frac{5}{/\sqrt{1000125}}$
+    \item $sim(d_1,q)=\frac{1}{\sqrt{427}}$\\
+        $sim(d_2,q)=\frac{10}{\sqrt{269}}$\\
+        $sim(d_3,q)=0$\\
+        $sim(d_4,q)=0$
+    \item $sim(d_1,q)=\frac{5}{\sqrt{427}}$\\
+        $sim(d_2,q)=\frac{5}{\sqrt{269}}$\\
+        $sim(d_3,q)=\frac{5}{\sqrt{10025}}$\\
+        $sim(d_4,q)=\frac{5}{\sqrt{1000125}}$
         
         The documents do not have the same score since each document vector has a different length. It could be reasonable to believe, that a document is more relevant if the relative frequency of the query term is higher, even though the absolute frequency is lower, e.g. one paragraph about the term alone versus in a long text (including other topics).
-    \item $sim(d_1,q)=$&$\frac{1}{/\sqrt{427}}$\\
-        $sim(d_2,q)=$&0\\
-        $sim(d_3,q)=$&0\\
-        $sim(d_4,q)=$&$\frac{10}{/\sqrt{1000125}}$
+    \item $sim(d_1,q)=\frac{1}{\sqrt{427}}$\\
+        $sim(d_2,q)=0$\\
+        $sim(d_3,q)=0$\\
+        $sim(d_4,q)=\frac{10}{\sqrt{1000125}}$
         
         In task (c), document 1 was less relevant than the other document, document 2. In this task, document 1 is more relevant than the other document, document 4.
         
-        This is because document 2 is shorter than document 1 and document 4, on the other hand, is longer than document 1, making the absolute number of occurrences less impactful.
+        This is because document 4 is shorter than document 2, making the identical absolute number of occurrences less impactful.
 \end{enumerate}
 
 
