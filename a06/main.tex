@@ -1,0 +1,118 @@
+% ---------------------------------------------------------------------------- %
+% -------------------------- nevermind the preamble -------------------------- %
+% ---------------------------------------------------------------------------- %
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, total={160mm, 240mm}]{geometry} % smaller margin %
+\usepackage[utf8]{inputenc} % umlauts %
+\usepackage[german]{babel} % validation %
+\usepackage[autostyle]{csquotes}
+\MakeOuterQuote{"}
+
+
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+\setlist[enumerate, 1]{label=(\alph*)}
+\setlist[enumerate, 2]{label=\arabic*}
+
+\usepackage{titlesec}
+\titleformat{\section}[hang]{\small}{\textbf{Task \thesection:}}{.5em}{}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+
+% ---------------------------------------------------------------------------- %
+% -------------------------- nevermind the preamble -------------------------- %
+% ---------------------------------------------------------------------------- %
+
+\title{ \vspace{-3em}
+        Assignment 06\\
+		\small{\bf Digital Libraries and Foundations of Information Retrieval}\\
+		\small{Winter semester 2022}}
+\author{\small{1542011 Franka Brunen}, \small{1365848 Andreas Schneider}}
+\date{}
+\begin{document}
+\setlength{\parskip}{6pt} % Remove paragraph first line h-indent and instead add v-margin %
+\setlength{\parindent}{0pt}
+
+\leftskip=1cm\rightskip=0.5cm % Indent paragraphs for readability %
+\setlist[1]{leftmargin=2cm} % Indent first level of lists accordingly %
+
+\maketitle
+
+\section{\hfill Vector Space Model\hfill 2+3+3+2+1+4 Points}
+\begin{enumerate}
+    \item \begin{tabular}[t]{ccc}
+             $idf_{t_1} = $&$\log\frac{4}{2}$ & $=1$  \\
+             $idf_{t_2} = $&$\log\frac{4}{4}$ & $=0$  \\
+             $idf_{t_3} = $&$\log\frac{4}{2}$ & $=1$  \\
+             $idf_{t_4} = $&$\log\frac{4}{2}$ & $=1$  \\
+             $idf_{t_5} = $&$\log\frac{4}{1}$ & $=2$  \\
+             $idf_{t_6} = $&$\log\frac{4}{2}$ & $=1$  \\
+             $idf_{t_7} = $&$\log\frac{4}{1}$ & $=2$
+        \end{tabular}
+    \item \begin{tabular}[t]{lcccc}
+             & $d_1$&$d_2$&$d_3$&$d_4$ \\
+            biscuits $(t_1)$    & $0$&$3$&$0$&$4$ \\
+            stollen $(t_2)$    & $0$&$0$&$0$&$0$ \\
+            lebkuchen $(t_3)$    & $1$&$7$&$0$&$0$ \\
+            macaroons $(t_4)$    & $0$&$1$&$0$&$2$ \\
+            brownies $(t_5)$    & $0$&$2$&$0$&$0$ \\
+            cookies $(t_6)$    & $0$&$1$&$0$&$4$ \\
+            pastries $(t_7)$    & $0$&$0$&$8$&$0$ \\
+        \end{tabular}
+    \item \begin{tabular}[t]{lcccc}
+             & $d_1$&$d_2$&$d_3$&$d_4$ \\
+            biscuits $(t_1)$    & $0$&$\frac{3}{8}$&$0$&$\frac{4}{6}$ \\
+            stollen $(t_2)$    & $0$&$0$&$0$&$0$ \\
+            lebkuchen $(t_3)$    & $1$&$\frac{7}{8}$&$0$&$0$ \\
+            macaroons $(t_4)$    & $0$&$\frac{1}{8}$&$0$&$\frac{2}{6}$ \\
+            brownies $(t_5)$    & $0$&$\frac{2}{8}$&$0$&$0$ \\
+            cookies $(t_6)$    & $0$&$\frac{1}{8}$&$0$&$\frac{4}{6}$ \\
+            pastries $(t_7)$    & $0$&$0$&$1$&$0$ \\
+        \end{tabular}
+    \item $q=(0,0,\frac{1}{\sqrt{3}},0,0,\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$
+    \item Summing up the normalized tf-idf scores on query terms, documents 1 through 3 will score either identical on a highest sum of 1, or document 2 will score better/worse, since its sum is distributed.
+    \item \begin{tabular}[t]{ccccccccc}
+            $sim(d_1,q)=$&0&+ 0&+ $1*\frac{1}{\sqrt{3}}$&+ 0&+ 0&+ 0&+ 0&= $1*\frac{1}{\sqrt{3}}$\\
+            $sim(d_2,q)=$&0&+ 0&+ $\frac{7}{8}*\frac{1}{\sqrt{3}}$&+ 0&+ 0&+ $\frac{1}{8}*\frac{1}{\sqrt{3}}$&+ 0&= $1*\frac{1}{\sqrt{3}}$\\
+            $sim(d_3,q)=$&0&+ 0&+ 0&+ 0&+ 0&+ 0&+ $1*\frac{1}{\sqrt{3}}$&= $1*\frac{1}{\sqrt{3}}$\\
+            $sim(d_4,q)=$&0&+ 0&+ 0&+ 0&+ 0&+ $\frac{4}{6}*\frac{1}{\sqrt{3}}$&+ 0&= $\frac{4}{6}*\frac{1}{\sqrt{3}}$
+        \end{tabular}
+        
+        Having equal weights, it did not make a difference that the sum is distributed.
+\end{enumerate}
+
+
+\section{\hfill Vector Space Model\hfill 1+2+3+4+5 Points}
+\begin{enumerate}
+    \item It is irrelevant except if the query consists of a term with $idf=0$. Then the query will return all documents equally, instead of a ranking by term frequency.
+    \item \begin{tabular}[t]{cccccccc}
+             $|d_1|$&$||d_1||$&$|d_2|$&$||d_2||$&$|d_3|$&$||d_3||$&$|d_4|$&$||d_4||$\\
+             =27&=$\sqrt{427}$&=27&=$\sqrt{269}$&=105&=$\sqrt{10025}$&=1015&=$\sqrt{1000125}$
+        \end{tabular}
+    \item $sim(d_1,q)=$&$\frac{1}{/\sqrt{427}}$\\
+        $sim(d_2,q)=$&$\frac{10}{/\sqrt{269}}$\\
+        $sim(d_3,q)=$&$0$\\
+        $sim(d_4,q)=$&$0$
+    \item $sim(d_1,q)=$&$\frac{5}{/\sqrt{427}}$\\
+        $sim(d_2,q)=$&$\frac{5}{/\sqrt{269}}$\\
+        $sim(d_3,q)=$&$\frac{5}{/\sqrt{10025}}$\\
+        $sim(d_4,q)=$&$\frac{5}{/\sqrt{1000125}}$
+        
+        The documents do not have the same score since each document vector has a different length. It could be reasonable to believe, that a document is more relevant if the relative frequency of the query term is higher, even though the absolute frequency is lower, e.g. one paragraph about the term alone versus in a long text (including other topics).
+    \item $sim(d_1,q)=$&$\frac{1}{/\sqrt{427}}$\\
+        $sim(d_2,q)=$&0\\
+        $sim(d_3,q)=$&0\\
+        $sim(d_4,q)=$&$\frac{10}{/\sqrt{1000125}}$
+        
+        In task (c), document 1 was less relevant than the other document, document 2. In this task, document 1 is more relevant than the other document, document 4.
+        
+        This is because document 2 is shorter than document 1 and document 4, on the other hand, is longer than document 1, making the absolute number of occurrences less impactful.
+\end{enumerate}
+
+
+\end{document}
