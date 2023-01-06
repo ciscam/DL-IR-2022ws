@@ -1,0 +1,126 @@
+% ---------------------------------------------------------------------------- %
+% -------------------------- nevermind the preamble -------------------------- %
+% ---------------------------------------------------------------------------- %
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, total={160mm, 240mm}]{geometry} % smaller margin %
+\usepackage[utf8]{inputenc} % umlauts %
+\usepackage[german]{babel} % validation %
+\usepackage[autostyle]{csquotes}
+\MakeOuterQuote{"}
+
+
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+\setlist[enumerate, 1]{label=(\alph*)}
+\setlist[enumerate, 2]{label=\arabic*}
+
+\usepackage{titlesec}
+\titleformat{\section}[hang]{\small}{\textbf{Task \thesection:}}{.5em}{}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+
+% ---------------------------------------------------------------------------- %
+% -------------------------- nevermind the preamble -------------------------- %
+% ---------------------------------------------------------------------------- %
+
+\title{ \vspace{-3em}
+        Assignment 8\\
+		\small{\bf Digital Libraries and Foundations of Information Retrieval}\\
+		\small{Winter semester 2022}}
+\author{\small{1542011 Franka Brunen}, \small{1365848 Andreas Schneider}}
+\date{}
+\begin{document}
+\setlength{\parskip}{6pt} % Remove paragraph first line h-indent and instead add v-margin %
+\setlength{\parindent}{0pt}
+
+\leftskip=1cm\rightskip=0.5cm % Indent paragraphs for readability %
+\setlist[1]{leftmargin=2cm} % Indent first level of lists accordingly %
+
+\maketitle
+
+\section{\hfill Relevance Assessment\hfill 2+4+2+7 Points}
+\begin{enumerate}
+    \item[(a,b)] \begin{tabular}[t]{llr}
+        \multicolumn{2}{c}{(a)} & \multicolumn{1}{c}{(b)}          \\
+        \textbf{ID} & \textbf{Title}            & \textbf{Relevance}  \\
+        1	& University\_of\_Trier	& highly relevant\\
+        2	& Trier	& relevant\\
+        3	& Lars\_von\_Trier	& not relevant\\
+        4	& Trier\_University\_of\_Applied\_Sciences	& relevant\\
+        5	& List\_of\_universities\_in\_Germany	& relevant\\
+        6	& History\_of\_Trier	& relevant\\
+        7	& New\_Trier\_High\_School	& not relevant\\
+        8	& Antichrist\_(film)	& not relevant\\
+        9	& Jost\_Trier	& not relevant\\
+        10	& Electorate\_of\_Trier	& relevant\\
+        11	& List\_of\_New\_Trier\_High\_School\_alumni	& not relevant\\
+        12	& Roman\_Bridge\_(Trier)	& not relevant\\
+        13	& Trier\_witch\_trials	& relevant\\
+        14	& ECB	& not relevant\\
+        15	& Trier\_Cathedral\_Treasury	& not relevant\\
+        16	& Seamless\_robe\_of\_Jesus	& not relevant\\
+        17	& Herman\_Trier	& not relevant\\
+        18	& Porta\_Nigra	& not relevant\\
+        19	& Walter\_Trier	& not relevant\\
+        20	& Lamprey	& not relevant
+        \end{tabular}
+    \setcounter{enumi}{2}
+    \item Precision of the above query result set: $ 7/20 $
+    \item \emergencystretch 5em%
+        \texttt{<title>}  \textit{norden}\\
+        \texttt{<desc>} \texttt{Anything about the town called Norden in Germany}\\
+        \texttt{<narr>} \texttt{Highly relevant documents must be primarily about anything concerning the town Norden in Germany. Relevant documents must at least reference the distinct town.}
+        
+        \begin{tabular}[t]{llr}
+        \textbf{ID} & \textbf{Title}            & \textbf{Relevance}  \\
+        1	& Norden	& relevant\\
+        2	& Carl\_Norden	& not relevant\\
+        3	& Norden\_bombsight	& not relevant\\
+        4	& Denis\_Norden	& not relevant\\
+        5	& S\_Norden	& not relevant\\
+        6	& It'll\_Be\_Alright\_on\_the\_Night	& not relevant\\
+        7	& Norden\_Systems	& not relevant\\
+        8	& Foreningen\_Norden	& not relevant\\
+        9	& Coop\_Norden	& not relevant\\
+        10	& Peter\_Van\_Norden	& not relevant\\
+        11	& Tommy\_Norden	& not relevant\\
+        12	& Norden\_(surname)	& not relevant\\
+        13	& Frederic\_Louis\_Norden	& not relevant\\
+        14	& John\_Barrymore	& not relevant\\
+        15	& Eduard\_Norden	& not relevant\\
+        16	& Norden,\_Lower\_Saxony	& highly relevant\\
+        17	& Christine\_Norden	& not relevant\\
+        18	& Norden,\_Nebraska	& relevant\\
+        19	& PostNord	& not relevant\\
+        20	& Putnam\_model	& not relevant
+        \end{tabular}
+        
+        Precision of the above query result set: $ 3/20 $
+\end{enumerate}
+
+
+\section{\hfill Relevance Assessment\hfill 1+2+3+3+3+3 Points}
+\begin{enumerate}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+\end{enumerate}
+
+
+\section{\hfill MAP\hfill 6+6+3 Points}
+\begin{enumerate}
+    \item 
+    \item 
+    \item 
+\end{enumerate}
+
+
+\end{document}
