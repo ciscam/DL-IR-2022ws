@@ -106,20 +106,43 @@
 
 \section{\hfill Relevance Assessment\hfill 1+2+3+3+3+3 Points}
 \begin{enumerate}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item The relevance of a document for a topic is not unambiguously assessable.
+    \item To solve this, the first $n$ results of multiple search engines can be combined. After removing duplicates, assessors can be tasked to assess documents from the pool in a random order.
+    
+    If this question pertains to documents not contained in a fully assessed pool, one can say that they can be ignored, as all participating search engines will have ranked them less relevant than its preceding $n$ documents.\\
+    If this question pertains to documents inside a not fully assessed pool, I don't quite understand what is asked. One could say that every assessment is just as likely to be about the most relevant document as the other. So if half the documents were assessed, there is a 50\% chance that "the most relevant document" is already among the assessed documents. Also all documents, assessed or not, have been deemed among the $n$ most relevant documents by the participating search engines.
+    \item If the new search engine produces results that vary greatly from the search engines underlying the existing collection, it could seem to have bad quality.
+    
+    One could assess documents that are new arrivals without any bias and only then judge the new search engine and re-judge the old search engines' quality.
+    \item Without further details, one cannot declare either 10 topics with 1000 results each or 100 topics with 100 results each "better" for a benchmark for text search.
+    
+        If the retrieval task is recall-oriented, assessing more results on fewer topics becomes more attractive. If the retrieval task is precision-oriented, assessing fewer results on more topics is preferable.
+        
+        If one of the selected systems changes its behavior after $n$ documents and, for example, then returns results to only part of the query, or anything but documents sorted by the same metric as the first $n$ documents, assessing more topics with fewer results each, according to the irregular behavior,  will produce more homogeneous and comparable assessments.
+    \item If one assumes that the user reads the results from top to bottom, is able to recognize a relevant document and clicks on the first one they see, it could appear as if the second result was the first relevant document.\\
+    Were that the case, the first result could still be relevant if, for example, the user was unable to recognize relevant documents, or they prioritized and clicked on the second result, because they were successfully clickbaited by a non-relevant result, or if they do not read the results from top to bottom, or if they do not click the first result that seems relevant, or one of many other reasons.
+    \item If one assumes that the user can recognize relevant results and will click them, it could appear as if the third result was not relevant.\\
+    Were that the case, the third result could still be relevant, if the user did not click at all. Even if they clicked other results, and even if results before and after the third result were clicked, one could assume that the user clicked randomly, did not recognize the third result, or found a satisfactory solution, before they would click on the third result.
 \end{enumerate}
 
 
 \section{\hfill MAP\hfill 6+6+3 Points}
 \begin{enumerate}
-    \item 
-    \item 
-    \item 
+    \item \begin{tabular}[t]{cccccccccc}
+            \textbf{A}   &V  &R  &\textbf{C}  &S  &\textbf{B}  &J  &L  &E  &\textbf{D} \\
+            $\frac{1}{1}$   &$\frac{1}{2}$&$\frac{1}{3}$&$\frac{2}{4}$&$\frac{2}{5}$&$\frac{3}{6}$&$\frac{3}{7}$&$\frac{3}{8}$&$\frac{3}{9}$&$\frac{4}{10}$
+        \end{tabular}
+        
+        $AP_{q_1} = (\frac{1}{1}+\frac{2}{4}+\frac{3}{6}+\frac{4}{10})/4 = \frac{24}{10}/4 = \frac{24}{40} = \frac{6}{10} = 0.6$\\
+    \item \begin{tabular}[t]{cccccccccc}
+            \textbf{A}&V&\textbf{R}&C&\textbf{S}&B&J&L&E&D \\
+            $\frac{1}{1}$   &$\frac{1}{2}$&$\frac{2}{3}$&$\frac{2}{4}$&$\frac{3}{5}$&$\frac{3}{6}$&$\frac{3}{7}$&$\frac{3}{8}$&$\frac{3}{9}$&$\frac{3}{10}$
+        \end{tabular}
+        
+        $AP_{q_2} = (\frac{1}{1}+\frac{2}{3}+\frac{3}{5}+0)/4 = \frac{34}{15}/4 = \frac{34}{60} = \frac{17}{30}\approx 0.57$\\
+    \item $MAP=(\frac{6}{10}+\frac{17}{30})/2 = \frac{35}{30}/2 = \frac{35}{60} = \frac{7}{12} \approx 0.58$\\
+    
+        $GMAP=\sqrt[2]{\prod_{i=0}^2q_i} = \sqrt[2]{\frac{6}{10}*\frac{17}{30}} = \sqrt[2]{\frac{102}{300}} = \sqrt[2]{\frac{28}{75}}\approx \frac{5.29}{8.66}\approx 0.61$
 \end{enumerate}
 
 
